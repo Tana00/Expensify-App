@@ -1,5 +1,6 @@
 import * as firebase from "firebase/app";
 import "firebase/database";
+import "firebase/auth";
 // import expenses from "../selectors/expenses";
 
 const firebaseConfig = {
@@ -17,7 +18,9 @@ firebase.initializeApp(firebaseConfig);
 
 const database = firebase.database();
 
-export { firebase, database as default };
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+
+export { firebase, googleAuthProvider, database as default };
 
 // child_removed
 // database.ref("expenses").on("child_removed", (snapshot) => {
